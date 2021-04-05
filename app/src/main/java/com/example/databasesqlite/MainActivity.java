@@ -2,6 +2,7 @@ package com.example.databasesqlite;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -33,5 +34,19 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Failed!!!!", Toast.LENGTH_SHORT).show();
         }
 
+    }
+    public void viewAlldataFunction(View view){
+        Cursor resultCursor = myDbhelper.getAllData();
+        StringBuffer myBuffer = new StringBuffer();
+        if(resultCursor.getCount()==0){
+            Toast.makeText(this, "There is now Data", Toast.LENGTH_SHORT).show();
+        }else{
+            while (resultCursor.moveToNext()){
+                myBuffer.append("Name"+resultCursor.getString(1));
+                myBuffer.append("Email"+resultCursor.getString(2));
+                myBuffer.append("Phone"+resultCursor.getString(3));
+            }
+            Toast.makeText(this, myBuffer.toString(), Toast.LENGTH_SHORT).show();
+        }
     }
 }

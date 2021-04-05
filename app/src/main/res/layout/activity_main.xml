@@ -80,4 +80,11 @@
         android:textSize="38dp"
         android:onClick="saveDataFunction"
         android:text="save data"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="38dp"
+        android:onClick="viewAlldataFunction"
+        android:text="Get All data"/>
+
 </LinearLayout>
